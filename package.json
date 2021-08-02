@@ -1,0 +1,92 @@
+{
+  "name": "@ies/turl",
+  "version": "2.8.1",
+  "description": "thrift + curl = turl",
+  "main": "dist/src/index.js",
+  "bin": {
+    "turl": "dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc --project .",
+    "dev": "tsc --project . -w",
+    "release": "npm run build && standard-version && git push --follow-tags origin master && npm publish",
+    "release:first": "npm run build && standard-version --first-release && git push --follow-tags origin master && npm publish",
+    "release:major": "npm run build && standard-version --release-as major && git push --follow-tags origin master && npm publish",
+    "release:minor": "npm run build && standard-version --release-as minor && git push --follow-tags origin master && npm publish",
+    "release:patch": "npm run build && standard-version --release-as patch && git push --follow-tags origin master && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huruji/turl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huruji/turl/issues"
+  },
+  "homepage": "https://github.com/huruji/turl#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@types/cosmiconfig": "^6.0.0",
+    "@types/fs-extra": "^9.0.9",
+    "@types/inquirer": "^7.3.1",
+    "@types/jsonfile": "^6.0.0",
+    "@types/node": "^14.14.25",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-vue": "^5.2.2",
+    "husky": "^1.2.1",
+    "lerna": "^3.8.0",
+    "lint-staged": "^8.1.5",
+    "standard-version": "^9.1.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^3.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "assign-deep": "^1.0.1",
+    "axios": "^0.21.1",
+    "bluebird": "^3.7.2",
+    "chalk": "^4.1.0",
+    "commander": "^7.0.0",
+    "consola": "^2.15.3",
+    "cosmiconfig": "^7.0.0",
+    "fs-extra": "^9.1.0",
+    "inquirer": "^7.3.3",
+    "jsonfile": "^6.1.0",
+    "load-json-file": "^6.2.0",
+    "mkdirp": "^1.0.4",
+    "node-int64": "^0.4.0",
+    "ora": "^5.3.0",
+    "thrift": "^0.13.0-hotfix.1",
+    "thrift-parser": "^0.4.2",
+    "thriftrw": "^3.11.3",
+    "update-notifier2": "^1.0.6",
+    "v8-compile-cache": "^2.2.0"
+  }
+}
